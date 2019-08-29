@@ -16,6 +16,7 @@ class List extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   handleChange(event) {
@@ -29,12 +30,17 @@ class List extends React.Component {
     event.preventDefault();
   }
 
+  deleteTodo(props) {
+    let prev_todos = this.state.todos;
+    let new_todos = prev_todos.filter(todo => todo !== props);
+    this.setState({ todos: new_todos, value: "" });
+  }
   render() {
     return (
       <div>
         <h1>My Todo List</h1>
         {this.state.todos.map(todo => (
-          <ListItem item={todo} key={todo} />
+          <ListItem item={todo} key={todo} delete={this.deleteTodo} />
         ))}
 
         <form onSubmit={this.addTodo}>
