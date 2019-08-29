@@ -9,7 +9,7 @@ class List extends React.Component {
       todos: [
         "eat dry food",
         "eat wet food",
-        "but mom",
+        "chase mom",
         "taunt Pippin",
         "attack brothers"
       ]
