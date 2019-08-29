@@ -4,7 +4,7 @@ import "./App.css";
 function ListItem(props) {
   return (
     <div className="ListItem">
-      {props.item}
+      <span onClick={() => props.edit(props.item)}>{props.item}</span>
       <button onClick={() => props.delete(props.item)}>x</button>
     </div>
   );
